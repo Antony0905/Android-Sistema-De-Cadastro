@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+    <LinearLayout
+        android:id="@+id/layouttopo_tp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fdb46d"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/layout_titulo_programa_tp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:text="Bem vindo ao Sistema de Cadastro. Esse é um pequeno
+software de cadastro de usuários. Escolha uma das opções abaixo :"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btcadastrar_usuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar Usuário" />
+    <Button
+        android:id="@+id/bt_listar_usuarios_cadastrados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar usuários cadastrados" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="match_parent"
+        android:layout_height="188dp"
+        android:src="@drawable/pikachu" />
+
+</LinearLayout>
