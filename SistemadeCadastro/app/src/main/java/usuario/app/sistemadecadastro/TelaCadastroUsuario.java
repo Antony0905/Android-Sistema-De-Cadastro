@@ -38,7 +38,6 @@ public class TelaCadastroUsuario extends MainActivity {
             @Override
             public void onClick(View view) {
 
-
                 AlertDialog.Builder dialogo = new
                         AlertDialog.Builder(act);
                 dialogo.setTitle("Aviso");
@@ -53,18 +52,20 @@ public class TelaCadastroUsuario extends MainActivity {
                                 r.setNome(ednome.getText().toString());
                                 r.setEndereco(edendereco.getText().toString());
                                 r.setTelefone(edtelefone.getText().toString());
-
-                                Update u = new Update(act);
-                                if (u.insertPessoa(r)) {
-                                    Toast.makeText(act, "Usuário Inserido com Sucesso", Toast.LENGTH_SHORT).show();
+                                if (r.getNome().equals("") || r.getTelefone().equals("") || r.getEndereco().equals("")) {
+                                    Toast.makeText(act, "Por Favor, Preencha Todos os Campos!", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(act, "Erro ao Inserir Usuário", Toast.LENGTH_SHORT).show();
+                                    Update u = new Update(act);
+                                    if (u.insertPessoa(r)) {
+                                        Toast.makeText(act, "Usuário Inserido com Sucesso", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(act, "Erro ao Inserir Usuário", Toast.LENGTH_SHORT).show();
+                                    }
+                                    CarregarTela();
                                 }
-                                //act.ExibirMensagem("Cadastro efetuado com sucesso.");
-                                //tela_principal.CarregarTela();
-                                CarregarTela();
                             }
                         });
+
                 dialogo.show();
             }
         });
