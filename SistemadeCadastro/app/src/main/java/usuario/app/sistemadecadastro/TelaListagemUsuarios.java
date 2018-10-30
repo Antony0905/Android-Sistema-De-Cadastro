@@ -1,6 +1,7 @@
 package usuario.app.sistemadecadastro;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 
 import usuario.app.sistemadecadastro.dao.Delete;
 import usuario.app.sistemadecadastro.dao.Read;
+import usuario.app.sistemadecadastro.dao.Update;
 
 public class TelaListagemUsuarios {
     MainActivity act;
@@ -83,29 +85,45 @@ public class TelaListagemUsuarios {
         btexcluir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Delete d = new Delete(act);
-                boolean delete = false;
-                delete = d.deletePessoa(act.getRegistros().get(index));
-                if (index == act.getRegistros().size()){
-                    index--;
-                }
 
-                if (act.getRegistros().size() == 0) {
-                    if (delete) {
-                        Toast.makeText(act, "Pessoa Excluída com Sucesso", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(act, "Erro ao Excluir Pessoa", Toast.LENGTH_SHORT).show();
-                    }
-                    tela_principal.CarregarTela();
-                    index = 0;
-                }else{
-                    if (delete) {
-                        Toast.makeText(act, "Pessoa Excluída com Sucesso", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(act, "Erro ao Excluir Pessoa", Toast.LENGTH_SHORT).show();
-                    }
-                    CarregarTela();
-                }
+                AlertDialog.Builder dialogo = new
+                        AlertDialog.Builder(act);
+                dialogo.setTitle("Aviso");
+                dialogo.setMessage("Excluír Usuário ?");
+                dialogo.setNegativeButton("Não", null);
+                dialogo.setPositiveButton("Sim", new
+                        DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+
+                                Delete d = new Delete(act);
+                                boolean delete = false;
+                                delete = d.deletePessoa(act.getRegistros().get(index));
+                                if (index == act.getRegistros().size()) {
+                                    index--;
+                                }
+
+                                if (act.getRegistros().size() == 0) {
+                                    if (delete) {
+                                        Toast.makeText(act, "Usuário Excluído com Sucesso", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(act, "Erro ao Excluir Usuário", Toast.LENGTH_SHORT).show();
+                                    }
+                                    tela_principal.CarregarTela();
+                                    index = 0;
+                                } else {
+                                    if (delete) {
+                                        Toast.makeText(act, "Usuário Excluída com Sucesso", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(act, "Erro ao Excluir Usuário", Toast.LENGTH_SHORT).show();
+                                    }
+                                    CarregarTela();
+                                }
+                            }
+                        });
+                dialogo.show();
+
             }
         });
 

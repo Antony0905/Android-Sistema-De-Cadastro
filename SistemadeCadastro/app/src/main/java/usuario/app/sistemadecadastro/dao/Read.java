@@ -64,6 +64,54 @@ public class Read extends SQLiteOpenHelper {
     }
 
 
+    public Registro findUsuarioByName(String nome) {
+        openDB();
+        try {
+            Registro r = new Registro();
+            String sql = "SELECT * FROM " + TABELA_PESSOA + " WHERE NOME = " + "'" + nome + "'";
+            Cursor c = db.rawQuery(sql,null);
+
+            if (c.moveToFirst()) {
+                do {
+                    r.setId(Integer.parseInt(c.getString(0)));
+                    r.setNome(c.getString(1));
+                    r.setEndereco(c.getString(2));
+                    r.setTelefone(c.getString(3));
+                } while (c.moveToNext());
+                c.close();
+            }
+
+            return r;
+        } catch (Exception e) {
+            e.printStackTrace();
+            Registro r = new Registro();
+            return r;
+        } finally {
+            db.close();
+        }
+    }
+
+    public boolean findUsuarioById(int id) {
+        openDB();
+        try {
+            Registro r = new Registro();
+            String sql = "SELECT * FROM " + TABELA_PESSOA + " WHERE ID = " + "'" + id + "'";
+            Cursor c = db.rawQuery(sql,null);
+
+            if (c.moveToFirst()) {
+                return true;
+            }
+            c.close();
+            return false;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            db.close();
+        }
+    }
+
     private void openDB() {
         if (!db.isOpen()) {
             db = mContext.openOrCreateDatabase(PATH_DB, SQLiteDatabase.OPEN_READWRITE, null);

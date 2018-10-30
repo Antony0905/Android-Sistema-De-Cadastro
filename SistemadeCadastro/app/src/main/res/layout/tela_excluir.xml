@@ -114,11 +114,11 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btatualizar"
+            android:id="@+id/bt_excluir"
             android:layout_width="90dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Atualizar" />
+            android:text="Excluir" />
 
         <Button
             android:id="@+id/btlimpar"

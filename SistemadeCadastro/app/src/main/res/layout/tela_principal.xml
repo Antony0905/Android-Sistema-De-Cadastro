@@ -49,6 +49,18 @@ software de cadastro de usuários. Escolha uma das opções abaixo :"
         android:layout_height="wrap_content"
         android:text="Listar usuários cadastrados" />
 
+    <Button
+        android:id="@+id/btatualizar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Atualizar Usuários" />
+
+    <Button
+        android:id="@+id/btexcluir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Excluir Usuários" />
+
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="match_parent"

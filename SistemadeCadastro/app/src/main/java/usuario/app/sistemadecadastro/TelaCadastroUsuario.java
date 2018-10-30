@@ -42,7 +42,7 @@ public class TelaCadastroUsuario extends MainActivity {
                 AlertDialog.Builder dialogo = new
                         AlertDialog.Builder(act);
                 dialogo.setTitle("Aviso");
-                dialogo.setMessage("Cadastrar usuário ?");
+                dialogo.setMessage("Cadastrar Usuário ?");
                 dialogo.setNegativeButton("Não", null);
                 dialogo.setPositiveButton("Sim", new
                         DialogInterface.OnClickListener() {
@@ -56,9 +56,9 @@ public class TelaCadastroUsuario extends MainActivity {
 
                                 Update u = new Update(act);
                                 if (u.insertPessoa(r)) {
-                                    Toast.makeText(act, "Pessoa Inserida com Sucesso", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(act, "Usuário Inserido com Sucesso", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(act, "Erro ao Inserir Pessoa", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(act, "Erro ao Inserir Usuário", Toast.LENGTH_SHORT).show();
                                 }
                                 //act.ExibirMensagem("Cadastro efetuado com sucesso.");
                                 //tela_principal.CarregarTela();

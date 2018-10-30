@@ -16,6 +16,7 @@ public class MainActivity extends Activity {
     TelaCadastroUsuario tela_cadastro;
     TelaListagemUsuarios tela_listagem;
     TelaEditar tela_editar;
+    TelaExcluir tela_excluir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +25,12 @@ public class MainActivity extends Activity {
         tela_principal = new TelaPrincipal(this);
         tela_cadastro = new TelaCadastroUsuario(this, tela_principal);
         tela_editar = new TelaEditar(this, tela_principal);
+        tela_excluir = new TelaExcluir(this, tela_principal);
         tela_listagem = new TelaListagemUsuarios(this, tela_principal,tela_editar);
         tela_principal.setTelaCadastro(tela_cadastro);
         tela_principal.setTelaListagem(tela_listagem);
+        tela_principal.setTelaEditar(tela_editar);
+        tela_principal.setTelaExcluir(tela_excluir);
 
         Create c = new Create(getApplicationContext());
         c.createTable();
